@@ -48,7 +48,7 @@ public class LightingManager : MonoBehaviour
 
     private void UpdateLighting(float timePercent)
     {
-        // Set ambient and fog
+        // Seting ambient and fog
         RenderSettings.ambientLight = Preset.AmbientColor.Evaluate(timePercent);
         RenderSettings.fogColor = Preset.FogColor.Evaluate(timePercent);
 

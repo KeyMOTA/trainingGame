@@ -40,7 +40,7 @@ public class wheelsController : MonoBehaviour
 
         if (currentSpeed >= maxSpeed * accelerationDecreaseThreshold)
         {
-            // Scale acceleration based on current speed
+            // Scaling acceleration based on current speed
             float speedFactor = (currentSpeed - maxSpeed * accelerationDecreaseThreshold) / (maxSpeed - maxSpeed * accelerationDecreaseThreshold);
             currentAcceleration = Mathf.Lerp(acceleration * inputAcceleration, acceleration * inputAcceleration * (1 - speedFactor), speedFactor);
         }
@@ -52,7 +52,7 @@ public class wheelsController : MonoBehaviour
         // Speed limit
         if (currentSpeed > maxSpeed)
         {
-            currentAcceleration = 0f; // Stop accelerating if at or above max speed
+            currentAcceleration = 0f; // Stops accelerating if at or above max speed
         }
 
         if (Input.GetKey(KeyCode.Space))
@@ -64,7 +64,7 @@ public class wheelsController : MonoBehaviour
             currentBreakForce = 0f;
         }
 
-        // Apply motor torque and brake force
+        //torque and brake force
         frontRight.motorTorque = currentAcceleration;
         frontLeft.motorTorque = currentAcceleration;
 
@@ -78,13 +78,13 @@ public class wheelsController : MonoBehaviour
         frontLeft.steerAngle = currentTurnAngle;
         frontRight.steerAngle = currentTurnAngle;
 
-        // Update wheel transforms
+        // wheel animation
         UpdateWheel(frontLeft, frontLeftTransform);
         UpdateWheel(frontRight, frontRightTransform);
         UpdateWheel(rearLeft, rearLeftTransform);
         UpdateWheel(rearRight, rearRightTransform);
 
-        // Update speedometer
+        //speedometer
         if (speedometerText != null)
         {
             speedometerText.text = $"Speed: {Mathf.RoundToInt(currentSpeed * 3.6f)} km/h";
