@@ -27,6 +27,10 @@ public class wheelsController : MonoBehaviour
     private float currentTurnAngle = 0f;
     private Rigidbody rb;
 
+    //brake lights
+    public Material brakeMaterial;
+    public Color brakingColor;
+
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
